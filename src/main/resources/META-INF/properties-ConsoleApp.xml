@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<configuration>
+
+  <property>
+    <name>dt.operator.console.prop.stringFormat</name>
+    <value>RandomNumber: %s</value>
+  </property>
+
+</configuration>
+
