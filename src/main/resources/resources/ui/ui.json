@@ -1,0 +1,32 @@
+{
+  "dashboards": [
+    {
+      "name": "PubSubAppOnly - All",
+      "description": "",
+      "file": "PubSubAppOnly - All.dtdashboard",
+      "appNames": ["PubSubAppOnly", "PubSubApp"],
+      "autoImportAppNames": ["PubSubAppOnly", "PubSubApp"]
+    },
+    {
+      "name": "PubSubAppOnly - Bullet Chart",
+      "description": "",
+      "file": "PubSubAppOnly - Bullet Chart.dtdashboard",
+      "appNames": ["PubSubAppOnly", "PubSubApp"],
+      "autoImportAppNames": ["PubSubAppOnly", "PubSubApp"]
+    },
+    {
+      "name": "PubSubAppOnly - Gauge",
+      "description": "",
+      "file": "PubSubAppOnly - Gauge.dtdashboard",
+      "appNames": ["PubSubAppOnly", "PubSubApp"],
+      "autoImportAppNames": ["PubSubAppOnly", "PubSubApp"]
+    },
+    {
+      "name": "PubSubAppOnly - Single Value",
+      "description": "",
+      "file": "PubSubAppOnly - Single Value.dtdashboard",
+      "appNames": ["PubSubAppOnly", "PubSubApp"],
+      "autoImportAppNames": ["PubSubAppOnly", "PubSubApp"]
+    }
+  ]
+}
