@@ -2,6 +2,16 @@
 <configuration>
 
   <property>
+    <name>dt.attr.MASTER_MEMORY_MB</name>
+    <value>256</value>
+  </property>
+
+  <property>
+    <name>dt.operator.*.attr.MEMORY_MB</name>
+    <value>128</value>
+  </property>
+
+  <property>
     <name>dt.operator.server.prop.embeddableQueryInfoProvider.topic</name>
     <value>RandomNumberQuery</value>
   </property>
