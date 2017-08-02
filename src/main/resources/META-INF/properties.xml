@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<configuration>
+
+  <property>
+    <name>dt.operator.server.prop.embeddableQueryInfoProvider.topic</name>
+    <value>RandomNumberQuery</value>
+  </property>
+
+  <property>
+    <name>dt.operator.result.prop.topic</name>
+    <value>RandomNumberResult</value>
+  </property>
+
+  <property>
+    <name>dt.operator.randomGenerator.port.input.attr.PARTITION_PARALLEL</name>
+    <value>true</value>
+  </property>
+  
+  <property>
+    <name>dt.operator.randomGenerator.prop.minValue</name>
+    <value>0</value>
+  </property>
+
+  <property>
+    <name>dt.operator.randomGenerator.prop.maxValue</name>
+    <value>100</value>    
+  </property>
+
+  <property>
+    <name>dt.operator.console.prop.stringFormat</name>
+    <value>RandomNumber: %s</value>
+  </property>
+
+
+  <property>
+    <name>dt.operator.randomGenerator.prop.interval</name>
+    <value>1000</value>
+  </property>
+
+</configuration>
+

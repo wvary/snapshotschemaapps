@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+
+  <property>
+    <name>dt.operator.randomGenerator.prop.interval</name>
+    <value>10000</value>
+  </property>
+
+  <property>
+    <name>dt.operator.randomGenerator.prop.minValue</name>
+    <value>20</value>
+  </property>
+
+</configuration>
