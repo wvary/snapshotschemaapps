@@ -23,19 +23,19 @@ public class PubSubApplicationOnly implements StreamingApplication
   @Override
   public void populateDAG(DAG dag, Configuration conf)
   {
-    AppDataSnapshotServerMap dataServer = dag.addOperator("server", AppDataSnapshotServerMap.class);
-    dataServer.setSnapshotSchemaJSON(SchemaUtils.jarResourceFileToString("schema.json"));
-
-    RandomNumberGenerator randomGenerator = dag.addOperator("randomGenerator", RandomNumberGenerator.class);
-
-    DataMap dataMap = dag.addOperator("dataMapper", DataMap.class);
+    Context.OperatorContext context;
+    String appName = context.getValue(Context.DAGContext.APPLICATION_ID);
+    System.out.println("name: ");
+    System.out.println(appName);
 
     String gatewayAddress = dag.getValue(Context.DAGContext.GATEWAY_CONNECT_ADDRESS);
     URI gatewayURI = URI.create("ws://" + gatewayAddress + "/pubsub");
 
-    PubSubWebSocketAppDataQuery queryProvider = new PubSubWebSocketAppDataQuery();
-    queryProvider.setUri(gatewayURI);
-    dataServer.setEmbeddableQueryInfoProvider(queryProvider);
+    MyPubSub dataServer = dag.addOperator("server", new MyPubSub(dag, gatewayURI));
+
+    RandomNumberGenerator randomGenerator = dag.addOperator("randomGenerator", RandomNumberGenerator.class);
+
+    DataMap dataMap = dag.addOperator("dataMapper", DataMap.class);
 
     PubSubWebSocketAppDataResult dataResult = dag.addOperator("result", PubSubWebSocketAppDataResult.class);
     dataResult.setUri(gatewayURI);

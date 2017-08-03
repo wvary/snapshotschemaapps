@@ -1,12 +1,27 @@
 <?xml version="1.0"?>
 <configuration>
 
-  <property>
+<!--   <property>
     <name>dt.operator.server.prop.embeddableQueryInfoProvider.topic</name>
-    <value>RandomNumberQuery</value>
+    <value>RandomNumberQuery_awsome</value>
   </property>
 
   <property>
+    <name>dt.operator.server.prop.embeddableQueryInfoProvider.topic</name>
+    <value>RandomNumberQuery_different</value>
+  </property>
+ -->
+  <property>
+    <name>dt.operator.server.prop.topic</name>
+    <value>RandomNumberQuery_good_stuff</value>
+  </property>
+
+<!--   <property>
+    <name>dt.*.prop.pubSubQueryTopic</name>
+    <value>RandomNumberQuerycool</value>
+  </property>
+
+ -->  <property>
     <name>dt.operator.result.prop.topic</name>
     <value>RandomNumberResult</value>
   </property>
