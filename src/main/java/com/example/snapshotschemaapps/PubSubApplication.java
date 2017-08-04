@@ -23,28 +23,21 @@ public class PubSubApplication implements StreamingApplication
   @Override
   public void populateDAG(DAG dag, Configuration conf)
   {
-    AppDataSnapshotServerMap dataServer = dag.addOperator("server", AppDataSnapshotServerMap.class);
-    dataServer.setSnapshotSchemaJSON(SchemaUtils.jarResourceFileToString("schema.json"));
+    String gatewayAddress = dag.getValue(Context.DAGContext.GATEWAY_CONNECT_ADDRESS);
+    URI gatewayURI = URI.create("ws://" + gatewayAddress + "/pubsub");
 
-    ConsoleOutputOperator cons = dag.addOperator("console", new ConsoleOutputOperator());
+    MyPubSub dataServer = dag.addOperator("server", new MyPubSub(dag, gatewayURI));
 
     RandomNumberGenerator randomGenerator = dag.addOperator("randomGenerator", RandomNumberGenerator.class);
 
     DataMap dataMap = dag.addOperator("dataMapper", DataMap.class);
 
-    String gatewayAddress = dag.getValue(Context.DAGContext.GATEWAY_CONNECT_ADDRESS);
-    URI gatewayURI = URI.create("ws://" + gatewayAddress + "/pubsub");
-
-    PubSubWebSocketAppDataQuery queryProvider = new PubSubWebSocketAppDataQuery();
-    queryProvider.setUri(gatewayURI);
-    dataServer.setEmbeddableQueryInfoProvider(queryProvider);
-
     PubSubWebSocketAppDataResult dataResult = dag.addOperator("result", PubSubWebSocketAppDataResult.class);
     dataResult.setUri(gatewayURI);
 
-    // dag.addStream("randomNumber", randomGenerator.out, cons.input);
-    dag.addStream("randomNumber", randomGenerator.out, dataMap.input, cons.input);
+    dag.addStream("randomNumber", randomGenerator.out, dataMap.input);
     dag.addStream("mapper", dataMap.outputData, dataServer.input);
     dag.addStream("results", dataServer.queryResult, dataResult.input);
   }
+
 }

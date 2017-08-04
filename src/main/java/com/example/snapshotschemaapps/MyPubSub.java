@@ -24,10 +24,10 @@ public class MyPubSub extends AppDataSnapshotServerMap
 {
   private static final Logger LOG = LoggerFactory.getLogger(MyPubSub.class);
 
-  private String topic = "RandomNumber";
+  private String topic = "RandomNumberQueryTopic";
   private transient PubSubWebSocketAppDataQuery queryProvider;
 
-  public MyPubSub() {    
+  public MyPubSub() {
   }
 
   public MyPubSub(DAG dag, URI gatewayURI) {

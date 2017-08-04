@@ -1,9 +1,14 @@
 <?xml version="1.0"?>
 <configuration>
 
+ <property>
+    <name>dt.attr.APPLICATION_NAME</name>
+    <value>PubSubApp</value>
+  </property>
+
   <property>
-    <name>dt.operator.server.prop.embeddableQueryInfoProvider.topic</name>
-    <value>RandomNumberQuery</value>
+    <name>dt.operator.server.prop.topic</name>
+    <value>${dt.attr.APPLICATION_NAME}:RandomNumberQueryTopic</value>
   </property>
 
   <property>
