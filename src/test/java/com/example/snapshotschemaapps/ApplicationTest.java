@@ -13,7 +13,7 @@ import org.apache.hadoop.conf.Configuration;
 import org.junit.Test;
 
 import com.datatorrent.api.LocalMode;
-import com.snapshotschemaapps.PubSubApplicationOnly;
+import com.snapshotschemaapps.PubSubApplication;
 
 /**
  * Test the DAG declaration in local mode.
@@ -26,7 +26,7 @@ public class ApplicationTest {
       LocalMode lma = LocalMode.newInstance();
       Configuration conf = new Configuration(false);
       conf.addResource(this.getClass().getResourceAsStream("/META-INF/properties.xml"));
-      lma.prepareDAG(new PubSubApplicationOnly(), conf);
+      lma.prepareDAG(new PubSubApplication(), conf);
       LocalMode.Controller lc = lma.getController();
       lc.run(5000); // runs for 10 seconds and quits
     } catch (ConstraintViolationException e) {
